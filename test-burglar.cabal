@@ -1,0 +1,64 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 66213b472eb7c5d23dc518a652ad6d1a2dbb2a6cecc21fd15c1d5d5796f6bbd7
+
+name:           test-burglar
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/develop7/test-burglar#readme>
+homepage:       https://github.com/develop7/test-burglar#readme
+bug-reports:    https://github.com/develop7/test-burglar/issues
+author:         Andrei Dziahel
+maintainer:     develop7@develop7.info
+copyright:      2020 Andrei Dziahel
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/develop7/test-burglar
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_test_burglar
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , astar
+    , unordered-containers
+  default-language: Haskell2010
+
+executable test-burglar-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_test_burglar
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , test-burglar
+  default-language: Haskell2010
+
+test-suite test-burglar-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_test_burglar
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , test-burglar
+  default-language: Haskell2010
