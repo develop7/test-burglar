@@ -10,7 +10,9 @@ Now, the slight issue here was that the detection chance is defined for
 the node at `(x, y)`, not for the cell-to-cell transition. This has been solved 
 by making edge weight a difference of destination detection probability 
 and source, effectively making particular transition more likely if detection 
-chance decreases and less likely otherwise. 
+chance decreases and less likely otherwise. In order to fix to Dijkstra 
+algorithm's failure to process negative edge weights, I'm adding `2.0` 
+to the difference, so the edge weight will always be positive. 
 
 ## Usage
 
