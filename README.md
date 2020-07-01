@@ -1,10 +1,11 @@
 # test-burglar
 
 So the task essentially is a path finding on a weighted graph. 
-The path finding algorithm would be the A*, for its effectiveness and speed; 
-also it should fit our purposes as well, because the room doesn't really have 
-any obstacles and detection chance is inversely proportional to the distance 
-from the sensor.
+The path finding algorithm would be the A*, for its effectiveness, 
+speed, me implemented it once before and being available on Hackage. 
+There's also room for improvement left by improving heuristic distance 
+function -- it is exact distance at the moment, since I couldn't come up 
+with anything better.
 
 Now, the slight issue here was that the detection chance is defined for 
 the node at `(x, y)`, not for the cell-to-cell transition. This has been solved 
