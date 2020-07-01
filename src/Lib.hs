@@ -53,7 +53,9 @@ fieldGraphFun m n = fg'
 data Alarm = Alarm {position :: Coords, strength :: Int} deriving (Show)
 
 moveCost :: [Alarm] -> Coords -> Coords -> Double
-moveCost alarms from to = alarmChanceTotal + 2.0 -- Add 2 to make sure the "distance" will be positive; negative distances cause path calculation to skew towards an less effective path for some reason
+moveCost alarms from to = alarmChanceTotal + 2.0 
+  -- Adding 2 to make sure the "distance" will be positive; Dijkstra algorithm 
+  -- is known to fail on negative edge distances.
   where
     alarmChanceTotal = sum $ map (alarmChanceDelta from to) alarms
     alarmChanceDelta :: Coords -> Coords -> Alarm -> Double
